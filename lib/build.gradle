@@ -3,7 +3,7 @@ import java.text.SimpleDateFormat
 apply plugin: 'java'
 apply plugin: 'me.champeau.gradle.jmh'
 apply plugin: 'maven-publish'
-apply plugin: 'com.jfrog.bintray'
+//apply plugin: 'com.jfrog.bintray'
 //apply from: '../config/quality-java.gradle'
 
 tasks.withType(JavaCompile) {
@@ -21,7 +21,7 @@ buildscript {
     repositories {
         mavenLocal()
         mavenCentral()
-        jcenter()
+//        jcenter()
         maven {
             url "https://plugins.gradle.org/m2/"
         }
@@ -101,37 +101,37 @@ publishing {
     }
 }
 
-bintray {
-    user = bintray_user
-    key = bintray_api_key
-
-    publications = ['mavenJava']
-
-    dryRun = false
-    publish = true
-    pkg {
-        repo = 'maven'
-        name = 'tinypinyin'
-        desc = '适用于Java和Android的快速、低内存占用的汉字转拼音库。'
-        websiteUrl = 'https://github.com/promeG/TinyPinyin'
-        issueTrackerUrl = 'https://github.com/promeG/TinyPinyin/issues'
-        vcsUrl = 'https://github.com/promeG/TinyPinyin.git'
-        licenses = ['Apache-2.0']
-        labels = ['pinyin', 'java', 'android']
-        publicDownloadNumbers = true
-        //Optional version descriptor
-        version {
-            name = rootProject.ext.releaseVersionName //Bintray logical version name
-            released = new SimpleDateFormat('yyyy-MM-dd\'T\'HH:mm:ss.SSSZZ').format(new Date())
-            vcsTag = '1.0.0'
-            mavenCentralSync {
-                sync = false
-                //Optional (true by default). Determines whether to sync the version to Maven Central.
-                user = 'userToken' //OSS user token
-                password = 'paasword' //OSS user password
-                close = '1'
-                //Optional property. By default the staging repository is closed and artifacts are released to Maven Central. You can optionally turn this behaviour off (by puting 0 as value) and release the version manually.
-            }
-        }
-    }
-}
+//bintray {
+//    user = bintray_user
+//    key = bintray_api_key
+//
+//    publications = ['mavenJava']
+//
+//    dryRun = false
+//    publish = true
+//    pkg {
+//        repo = 'maven'
+//        name = 'tinypinyin'
+//        desc = '适用于Java和Android的快速、低内存占用的汉字转拼音库。'
+//        websiteUrl = 'https://github.com/promeG/TinyPinyin'
+//        issueTrackerUrl = 'https://github.com/promeG/TinyPinyin/issues'
+//        vcsUrl = 'https://github.com/promeG/TinyPinyin.git'
+//        licenses = ['Apache-2.0']
+//        labels = ['pinyin', 'java', 'android']
+//        publicDownloadNumbers = true
+//        //Optional version descriptor
+//        version {
+//            name = rootProject.ext.releaseVersionName //Bintray logical version name
+//            released = new SimpleDateFormat('yyyy-MM-dd\'T\'HH:mm:ss.SSSZZ').format(new Date())
+//            vcsTag = '1.0.0'
+//            mavenCentralSync {
+//                sync = false
+//                //Optional (true by default). Determines whether to sync the version to Maven Central.
+//                user = 'userToken' //OSS user token
+//                password = 'paasword' //OSS user password
+//                close = '1'
+//                //Optional property. By default the staging repository is closed and artifacts are released to Maven Central. You can optionally turn this behaviour off (by puting 0 as value) and release the version manually.
+//            }
+//        }
+//    }
+//}
